@@ -1,0 +1,179 @@
+<header>Sisfact</header>
+<div class="container">
+  <form class="form-control" [formGroup]="objForm"
+  autocomplete="off">
+      <h2>Sisfact</h2>
+    <div class="row">
+
+      <div class="col-3">
+
+        <div class="form-floating">
+          <input type="text" class="form-control"
+          ngModel maxlength="50"
+          [ngClass]="{'is-invalid': !encabezado.valid}"
+          formControlName="encabezado"
+          id="floatingInputGrid">
+          <label for="floatingInputGrid">Encabezado</label>
+        </div>
+
+      </div>
+      <div class="col-3 ">
+
+        <div class="form-floating">
+          <input type="text"
+          maxlength="5"
+          class="form-control"
+          [ngClass]="{'is-invalid': !Prefijo.valid}"
+          formControlName="Prefijo"
+          id="floatingInputGrid">
+          <label for="floatingInputGrid">Prefijo</label>
+        </div>
+
+      </div>
+
+      <div class="col-3 ">
+
+        <div class="form-floating">
+          <input type="number"
+          class="form-control"
+          [ngClass]="{'is-invalid': !numerores.valid}"
+          formControlName="numerores"
+          id="floatingInputGrid">
+          <label for="floatingInputGrid">Numero Res</label>
+        </div>
+
+      </div>
+
+      <div class="col-3">
+        <div class="form-floating">
+        <input type="number"
+        class="form-control"
+        [ngClass]="{'is-invalid': !consecutivo.valid}"
+        formControlName="consecutivo"
+        id="floatingInputGrid">
+        <label for="floatingInputGrid">Consecutivo</label>
+        </div>
+
+      </div>
+
+      <div class="col-6 mt-3">
+        <div class="form-floating">
+          <input type="date"
+          class="form-control"
+          [ngClass]="{'is-invalid': !FechaInicio.valid}"
+          formControlName="FechaInicio"
+          id="floatingInputGrid">
+          <label for="floatingInputGrid">Fecha Inicio</label>
+        </div>
+.
+      </div>
+
+      <div class="col-6 mt-3">
+
+       <div class="form-floating">
+
+        <input type="date"
+        class="form-control"
+        [ngClass]="{'is-invalid': !FechaFin.valid}"
+        formControlName="FechaFin"
+        id="floatingInputGrid">
+        <label for="floatingInputGrid">Fecha Fin</label>
+      </div>
+
+
+      </div>
+
+      <div class="col-4">
+        <div class="form-floating">
+
+
+          <select class="form-select" formControlName="tipo_doc" id="floatingSelectGrid" aria-label="Floating label select example"
+          [ngClass]="{'is-invalid': !tipo_doc.valid}">
+            <option value="1">Factura</option>
+            <option value="2">Nota credito</option>
+            <option value="3">Nota debito</option>
+            <option value="4">Soporte de adquisiciones</option>
+          </select>
+          <label for="floatingInputGrid">Tipo de documento</label>
+
+        </div>
+
+      </div>
+
+      <div class="col-4">
+        <div class="form-floating">
+
+
+          <input type="text"
+          maxlength="18"
+          class="form-control"
+          [ngClass]="{'is-invalid': !NumeroInicio.valid}"
+          formControlName="NumeroInicio"
+          id="NumeroInicio">
+          <label for="">Numero Inicio</label>
+
+        </div>
+      </div>
+
+      <div class="col-4 ">
+
+        <div class="form-floating">
+
+          <input type="text"
+          maxlength="18"
+          class="form-control"
+          [ngClass]="{'is-invalid': !NumeroFin.valid}"
+          formControlName="NumeroFin"
+          id="NumeroFin">
+          <label for="">Numero FIn</label>
+        </div>
+
+      </div>
+
+    </div>
+    <div >
+      <button class="btn btn-primary ms-2" id="add" type="button" (click)="add()" [style.margin-top]= "'5px'"
+      *ngIf="habilitar"
+      >Nuevo</button>
+      <button class="btn btn-primary ms-2" type="button"
+      [disabled]="!objForm.valid" (click)="save()" [style.margin-top]= "'5px'"
+      *ngIf="deshabilitar">Guardar</button>
+      <button class="btn btn-primary ms-2" type="button" (click)="cancel()" [style.margin-top]= "'5px'"
+      *ngIf="deshabilitar">Cancelar</button>
+    </div>
+
+  </form>
+  <div class="row">
+    <div class="col-12 mt-2">
+      <table>
+        <tr>
+          <th>Encabezado</th>
+          <th>Consecutivo</th>
+          <th>Prefijo</th>
+          <th>NumeroRes</th>
+          <th>FechaInicio</th>
+          <th>FechaFin</th>
+          <th>NumeroInicio</th>
+          <th>NumeroFin</th>
+          <th>Tipo Doc</th>
+          <th>Acciones</th>
+        </tr>
+        <tbody>
+          <tr *ngFor="let dato of datos; index as i">
+            <td>{{dato.encabezado}}</td>
+            <td>{{dato.consecutivo}}</td>
+            <td>{{dato.Prefijo}}</td>
+            <td>{{dato.numerores}}</td>
+            <td>{{dato.FechaInicio}}</td>
+            <td>{{dato.FechaFin}}</td>
+            <td>{{dato.NumeroInicio}}</td>
+            <td>{{dato.NumeroFin}}</td>
+            <td>{{dato.tipo_doc}}</td>
+            <td><button type="button" (click)="delete(i)">borrar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

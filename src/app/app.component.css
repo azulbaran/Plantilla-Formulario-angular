@@ -1,0 +1,25 @@
+header{
+  background-color: rgb(57, 57, 214);
+  padding: 10px;
+  color:white;
+  text-align: justify;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+table{
+  width: 100%;
+}
+.container{
+  margin-top: 20px;
+}
+
+.form-control:disabled {
+  border-color: #ccc;
+  background-image: none;
+}
+.form-select:disabled {
+  border-color: #ccc;
+  background-image: none;
+}
+
